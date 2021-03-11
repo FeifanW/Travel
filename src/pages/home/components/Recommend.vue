@@ -2,7 +2,7 @@
   <div>
     <div class="title">热销推荐</div>
     <ul>
-      <li class='item border-bottom' v-for="item of recommendList" :key="item.id">
+      <li class='item border-bottom' v-for="item of list" :key="item.id">
 
           <img class="item-img" :src="item.imgUrl" />
 
@@ -19,25 +19,8 @@
 <script>
 export default {
   name: 'HomeRecommend',
-  data () {
-    return {
-      recommendList: [{
-        id: '0001',
-        imgUrl: 'https://imgs.qunarzz.com/sight/p0/2005/30/307fa37039eab5cba3.water.jpg_200x200_39faf9c6.jpg',
-        title: '颐和园',
-        desc: '中国现存最大的皇家园林'
-      }, {
-        id: '0002',
-        imgUrl: 'https://imgs.qunarzz.com/sight/p0/2005/30/307fa37039eab5cba3.water.jpg_200x200_39faf9c6.jpg',
-        title: '颐和园',
-        desc: '中国现存最大的皇家园林'
-      }, {
-        id: '0003',
-        imgUrl: 'https://imgs.qunarzz.com/sight/p0/2005/30/307fa37039eab5cba3.water.jpg_200x200_39faf9c6.jpg',
-        title: '颐和园',
-        desc: '中国现存最大的皇家园林'
-      }]
-    }
+  props: {
+    list: Array
   }
 }
 
