@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="search">
-      <input v-model="keyword" class="search-input" type="text" placeholder="输入城市名或拼音"/>
+      <input v-model="keyword" class="search-input" type="text" placeholder="输入城市名或拼音" />
     </div>
     <div
       class="search-content"
@@ -9,10 +9,11 @@
       v-show="keyword"
     >
       <ul>
-        <li class="search-item border-bottom"
-             v-for="item of list"
-             :key="item.id"
-             @click="handleCityClick(item.name)"
+        <li
+          class="search-item border-bottom"
+          v-for="item of list"
+          :key="item.id"
+          @click="handleCityClick(item.name)"
         >
           {{item.name}}
         </li>
@@ -57,8 +58,7 @@ export default {
         const result = []
         for (let i in this.cities) {
           this.cities[i].forEach((value) => {
-            if (value.spell.indexOf(this.keyword) > -1 ||
-              value.name.indexOf(this.keyword) > -1) {
+            if (value.spell.indexOf(this.keyword) > -1 || value.name.indexOf(this.keyword) > -1) {
               result.push(value)
             }
           })
@@ -86,7 +86,7 @@ export default {
   @import '~styles/varibles.styl'
   .search
     height: .72rem
-    padding: 0 0.1rem
+    padding: 0 .1rem
     background: $bgColor
     .search-input
       box-sizing: border-box
@@ -99,6 +99,7 @@ export default {
       color: #666
   .search-content
     z-index: 1
+    overflow: hidden
     position: absolute
     top: 1.58rem
     left: 0

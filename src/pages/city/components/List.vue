@@ -24,7 +24,7 @@
       </div>
       <div
         class="area"
-        v-for="(item,key) of cities"
+        v-for="(item, key) of cities"
         :key="key"
         :ref="key"
       >
@@ -37,7 +37,7 @@
             @click="handleCityClick(innerItem.name)"
           >
             {{innerItem.name}}
-            </div>
+          </div>
         </div>
       </div>
     </div>

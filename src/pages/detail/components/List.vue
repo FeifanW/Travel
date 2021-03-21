@@ -9,7 +9,7 @@
         <span class="item-title-icon"></span>
         {{item.title}}
       </div>
-      <div v-if="item.children" class="item-children">
+      <div v-if="item.children" class="item-chilren">
         <detail-list :list="item.children"></detail-list>
       </div>
     </div>
@@ -22,7 +22,6 @@ export default {
   props: {
     list: Array
   }
-
 }
 </script>
 
@@ -41,6 +40,6 @@ export default {
     line-height: .8rem
     font-size: .32rem
     padding: 0 .2rem
-  .item-children
+  .item-chilren
     padding: 0 .2rem
 </style>

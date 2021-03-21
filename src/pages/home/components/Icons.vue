@@ -2,18 +2,23 @@
   <div class="icons">
     <swiper :options="swiperOption">
       <swiper-slide v-for="(page, index) of pages" :key="index">
-        <div class="icon" v-for="item of page" :key="item.id">
+        <div
+          class="icon"
+          v-for="item of page"
+          :key="item.id"
+        >
           <div class='icon-img'>
-            <img class='icon-img-content' :src='item.imgUrl'/>
+            <img class='icon-img-content' :src='item.imgUrl' />
           </div>
           <p class="icon-desc">{{item.desc}}</p>
         </div>
       </swiper-slide>
-     </swiper>
+    </swiper>
   </div>
 </template>
+
 <script>
-export default{
+export default {
   name: 'HomeIcons',
   props: {
     list: Array
@@ -40,6 +45,7 @@ export default{
   }
 }
 </script>
+
 <style lang="stylus" scoped>
   @import '~styles/varibles.styl'
   @import '~styles/mixins.styl'
@@ -50,11 +56,11 @@ export default{
     margin-top: .1rem
     .icon
       position: relative
-      overflow : hidden
-      float:left
-      width:25%
-      padding-bottom: 25%
+      overflow: hidden
+      float: left
+      width: 25%
       height: 0
+      padding-bottom: 25%
       .icon-img
         position: absolute
         top: 0

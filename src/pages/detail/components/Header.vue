@@ -1,10 +1,10 @@
 <template>
   <div>
     <router-link
-    tag="div"
-    to="/"
-    class="header-abs"
-    v-show="showAbs">
+      tag="div"
+      to="/"
+      class="header-abs"
+      v-show="showAbs">
       <div class="iconfont header-abs-back">&#xe624;</div>
     </router-link>
     <div
@@ -13,7 +13,7 @@
       :style="opacityStyle"
     >
       <router-link to="/">
-       <div class="iconfont header-fixed-back">&#xe624;</div>
+        <div class="iconfont header-fixed-back">&#xe624;</div>
       </router-link>
       景点详情
     </div>
@@ -22,7 +22,7 @@
 
 <script>
 export default {
-  name: 'DetailBanner',
+  name: 'DetailHeader',
   data () {
     return {
       showAbs: true,
@@ -37,9 +37,7 @@ export default {
       if (top > 60) {
         let opacity = top / 140
         opacity = opacity > 1 ? 1 : opacity
-        this.opacityStyle = {
-          opacity
-        }
+        this.opacityStyle = { opacity }
         this.showAbs = false
       } else {
         this.showAbs = true
@@ -49,7 +47,7 @@ export default {
   mounted () {
     window.addEventListener('scroll', this.handleScroll)
   },
-  destoryed () {
+  destroyed () {
     window.removeEventListener('scroll', this.handleScroll)
   }
 }

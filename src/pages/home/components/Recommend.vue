@@ -3,11 +3,11 @@
     <div class="title">热销推荐</div>
     <ul>
       <router-link
-      tag="li"
-      class='item border-bottom'
-      v-for="item of list"
-      :key="item.id"
-      :to="'/detail/' + item.id"
+        tag="li"
+        class="item border-bottom"
+        v-for="item of list"
+        :key="item.id"
+        :to="'/detail/' + item.id"
       >
         <img class="item-img" :src="item.imgUrl" />
         <div class="item-info">
@@ -27,17 +27,15 @@ export default {
     list: Array
   }
 }
-
 </script>
 
 <style lang="stylus" scoped>
-  @import '~styles/mixins.styl';
+  @import '~styles/mixins.styl'
   .title
     margin-top: .2rem
-    padding-left: .2rem
     line-height: .8rem
     background: #eee
-    rext-indent: .2rem
+    text-indent: .2rem
   .item
     overflow: hidden
     display: flex
@@ -55,14 +53,14 @@ export default {
         font-size: .32rem
         ellipsis()
       .item-desc
-        lint-height: .4rem
+        line-height: .4rem
         color: #ccc
         ellipsis()
       .item-button
-        line-height: .40rem
+        line-height: .44rem
         margin-top: .16rem
         background: #ff9300
-        padding: 0 .1rem
+        padding: 0 .2rem
         border-radius: .06rem
         color: #fff
 </style>

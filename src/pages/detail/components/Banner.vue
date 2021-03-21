@@ -1,22 +1,24 @@
 <template>
   <div>
-  <div class="banner" @click="handleBannerClick">
-    <img class="banner-img" :src="bannerImg" />
-    <div class="banner-info">
-      <div class="banner-title">{{this.sightName}}</div>
-      <div class="banner-number">
-        <span class="iconfont banner-icon">&#xe692;</span>
-        {{this.bannerImgs.length}}
+    <div class="banner" @click="handleBannerClick">
+      <img class="banner-img" :src="bannerImg" />
+      <div class="banner-info">
+        <div class="banner-tittle">
+          {{this.sightName}}
+        </div>
+        <div class="banner-number">
+          <span class="iconfont banner-icon">&#xe692;</span>
+          {{this.bannerImgs.length}}
+        </div>
       </div>
     </div>
-  </div>
-  <fade-animation>
-    <common-gallary
-      :imgs="bannerImgs"
-      v-show="showGallary"
-      @close="handleGallaryClose"
-    ></common-gallary>
-  </fade-animation>
+    <fade-animation>
+      <common-gallary
+        :imgs="bannerImgs"
+        v-show="showGallary"
+        @close="handleGallaryClose"
+      ></common-gallary>
+    </fade-animation>
   </div>
 </template>
 
@@ -66,9 +68,9 @@ export default {
       bottom: 0
       line-height: .6rem
       color: #fff
-      background-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8))
-      .banner-title
-        flex:1
+      background-image: linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8))
+      .banner-tittle
+        flex: 1
         font-size: .32rem
         padding: 0 .2rem
       .banner-number
