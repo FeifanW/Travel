@@ -1,61 +1,79 @@
 <template>
-  <div class="header">
-    <div class="header-left">
-      <div class="iconfont back-icon">&#xe624;</div>
+    <div class="home-header">
+        <!-- left -->
+        <div class="left">
+            <img :src="icon_back" alt="" >
+        </div>
+        <!-- center -->
+        <div class="center">
+            <img :src="icon_search" alt=""></i>输入城市/景点/游玩主题
+        </div>
+        <!-- right -->
+        <router-link to="/city">
+            <div class="right">
+                {{city}}<img :src="icon_down">
+            </div>
+        </router-link>
     </div>
-    <div class="header-input">
-      <span class="iconfont">&#xe632;</span>
-      输入城市/景点/游玩主题
-    </div>
-    <router-link to='/city'>
-      <div class="header-right">
-        {{this.city}}
-        <span class="iconfont arrow-icon">&#xe64a;</span>
-      </div>
-    </router-link>
-  </div>
 </template>
 
 <script>
-import { mapState } from 'vuex'
-export default {
-  name: 'HomeHeader',
-  computed: {
-    ...mapState(['city'])
-  }
-}
+    import store from '@/vuex/index.js'
+    import {mapState} from 'vuex'
+
+    export default {
+        store,
+        data () {
+            return {
+                icon_back: require('../../../assets/image/back.png'),
+                icon_search: require('../../../assets/image/search.png'),
+                icon_down: require('../../../assets/image/down.png')
+            }
+        },
+        computed: {
+            ...mapState(['city'])
+        }
+    }
 </script>
 
 <style lang="stylus" scoped>
-  @import '~styles/varibles.styl'
-  .header
-    display: flex
-    line-height: $headerHeight
-    background: $bgColor
-    color: #fff
-    .header-left
-      width: .64rem
-      float: left
-      .back-icon
-        text-align: center
-        font-size: .4rem
-    .header-input
-      flex: 1
-      height: .64rem
-      line-height: .64rem
-      margin-top: .12rem
-      margin-left: .2rem
-      padding-left: .2rem
-      background: #fff
-      border-radius: .1rem
-      color: #ccc
-    .header-right
-      min-width: 1.04rem
-      padding: 0 .1rem
-      float: right
-      text-align: center
-      color: #fff
-      .arrow-icon
-        margin-left: -.04rem
-        font-size: .24rem
+    @import '~@/assets/style/varibles.styl'
+
+    .home-header
+        height $city_H
+        background $blue
+        display flex
+        align-items center
+        color #ffffff
+        .left
+            height .86rem
+            width .86rem
+            background $backgroundColor 
+            text-align center
+            line-height .86rem
+            img
+                width .39rem
+        .center
+            height .59rem
+            flex auto
+            padding 0 .12rem
+            background #ffffff
+            border-radius .12rem
+            line-height .59rem
+            color #aea7a7
+            img
+                width .39rem
+        .right
+            color #ffffff
+            height .86rem
+            mini-width 1.5rem
+            background $backgroundColor 
+            display flex
+            justify-content center
+            align-items center
+            padding-left .16rem
+            img
+                width .39rem    
+                margin-left .18rem            
+                margin-right .18rem
 </style>

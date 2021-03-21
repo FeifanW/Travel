@@ -1,0 +1,9 @@
+<!DOCTYPE html><html><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no"><meta name=viewport content="width=device-width,initial-scale=1"><title>VUE</title><style></style><link href=./static/css/app.e2b81e065f2218a31d72bdef462a6176.css rel=stylesheet></head><body><div id=app></div><script>rem()
+        window.onresize = () => rem()
+
+        function rem() {
+            let htmlWidth = document.documentElement.clientWidth || document.body.clientWidth;
+            if (htmlWidth > 750) htmlWidth = 750
+            let htmlDom = document.getElementsByTagName('html')[0];
+            htmlDom.style.fontSize = htmlWidth / 750 * 100 + 'px';
+        }</script><script type=text/javascript src=./static/js/manifest.d81f6a66affab730322d.js></script><script type=text/javascript src=./static/js/vendor.45ac1f2af99b4bf24a9a.js></script><script type=text/javascript src=./static/js/app.2b593d23ce40ee308f06.js></script></body></html>

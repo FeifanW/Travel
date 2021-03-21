@@ -1,25 +1,5 @@
-## Vue CLI 2 版本构建的项目
+#### 仿去哪儿网 vue + vuex
+###### 链接 : https://lby1024.github.io/travle/
+![image](https://note.youdao.com/yws/api/personal/file/B5C912469F724560A8AE6D32E46B5C30?method=download&shareKey=5d6bc0edf796916b9f2b6a17d6d12a82)
 
-### 切换到课程章节对应的分支
-```
-git checkout 分支名
-```
 
-### 项目依赖安装
-```
-npm install
-```
-
-### 本地开发
-```
-npm run dev
-```
-
-### 打包编译
-```
-npm run build
-```
-
-### 02-05 章基础课程源码：[点击下载](http://www.dell-lee.com/vue-source-code.zip)
-
-### 课程相关问题请在慕课网答疑区留言

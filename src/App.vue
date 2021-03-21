@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <keep-alive exclude="Detail">
-      <router-view/>
+    <keep-alive exclude="detail">
+      <router-view></router-view>
     </keep-alive>
   </div>
 </template>
@@ -12,4 +12,13 @@ export default {
 }
 </script>
 
-<style></style>
+<style>
+  body,html{
+    background: #eeeeee;
+  }
+  #app{
+    background: #eeeeee;
+    max-width: 750px;
+    margin: 0 auto;
+  }
+</style>

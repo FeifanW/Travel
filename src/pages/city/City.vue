@@ -1,63 +1,56 @@
 <template>
-  <div>
-    <city-header></city-header>
-    <city-search :cities="cities"></city-search>
-    <city-list
-      :cities="cities"
-      :hot="hotCities"
-      :letter="letter"
-    ></city-list>
-    <city-alphabet
-      :cities="cities"
-      @change="handleLetterChange"
-    ></city-alphabet>
-  </div>
+    <div class="city">
+        <city-header @click="test"></city-header>
+        <city-search :cities="data.cities" v-if="data"></city-search>
+        <city-list :data="data" :scrollTo="scrollTo" v-if="data"></city-list>
+        <a-z :cities="data.cities" @change="change" v-if="data"></a-z>
+        <m-loading v-if="is_loading"></m-loading>
+    </div>
 </template>
 
 <script>
-import axios from 'axios'
-import CityHeader from './components/Header'
-import CitySearch from './components/Search'
-import CityList from './components/List'
-import CityAlphabet from './components/Alphabet'
-export default {
-  name: 'City',
-  components: {
-    CityHeader,
-    CitySearch,
-    CityList,
-    CityAlphabet
-  },
-  data () {
-    return {
-      cities: {},
-      hotCities: [],
-      letter: ''
+    import cityHeader from './components/city_header.vue'
+    import citySearch from './components/city_search.vue'
+    import cityList from './components/city_list.vue'
+    import aZ from './components/nav_abc.vue'
+    import mLoading from "@/components/base/loading.vue"
+    import axios from 'axios'
+
+    export default {
+        components: {cityHeader, citySearch, cityList, aZ, mLoading},
+        data () {
+            return {
+                data: null,
+                scrollTo: 'A',
+                is_loading: true
+            }
+        },
+        methods: {
+            change (data) {
+                // console.log(data)
+                this.scrollTo = data
+            },
+            test () {
+                console.log(333333333333333333)
+            }
+        },
+        mounted () {
+            axios.get('https://www.easy-mock.com/mock/5ae977ce0d65f051a34af2ca/travle/city')
+                .then(res => {
+                    let data = res.data
+                    if (data.ret&&data.data) {
+                        this.data = data.data
+                        this.is_loading = false
+                    }
+                })
+        }
     }
-  },
-  methods: {
-    getCityInfo () {
-      axios.get('/api/city.json')
-        .then(this.handleGetCityInfoSucc)
-    },
-    handleGetCityInfoSucc (res) {
-      res = res.data
-      if (res.ret && res.data) {
-        const data = res.data
-        this.cities = data.cities
-        this.hotCities = data.hotCities
-      }
-    },
-    handleLetterChange (letter) {
-      this.letter = letter
-    }
-  },
-  mounted () {
-    this.getCityInfo()
-  }
-}
 </script>
 
 <style lang="stylus" scoped>
-
+    .city
+        position relative
+        width 100%
+        height 100vh
+        max-width 750px
 </style>

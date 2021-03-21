@@ -1,45 +1,53 @@
 <template>
-  <div class="wrapper">
-    <swiper :options="swiperOption" v-if="showSwiper">
-      <swiper-slide v-for="item of list" :key="item.id">
-        <img class="swiper-img" :src="item.imgUrl" />
-      </swiper-slide>
-      <div class="swiper-pagination"  slot="pagination"></div>
-    </swiper>
-  </div>
+    <div class="home-swiper">
+        <swiper :options="swiperOption" class="swiper">
+            <swiper-slide class="swiper-slider" v-for="item in list" :key="item.id">
+                <img class="swiper-img" :src="item.imgUrl" alt="">
+            </swiper-slide>
+            <div class="swiper-pagination" slot="pagination"></div>
+        </swiper>
+    </div>
 </template>
 
 <script>
-export default {
-  name: 'HomeSwiper',
-  props: {
-    list: Array
-  },
-  data () {
-    return {
-      swiperOption: {
-        pagination: '.swiper-pagination',
-        loop: true
-      }
+    export default {
+        name: 'HomeSwiper',
+        data() {
+            return {
+                swiperOption: {
+                    pagination: '.swiper-pagination',
+                    loop: true,
+                    autoplay: 3000      // 这是__swiper3__的写法,和版本4不同
+                }
+            }
+        },
+        props: {
+            list: {
+                type: Array,
+                default: null
+            }
+        }
     }
-  },
-  computed: {
-    showSwiper () {
-      return this.list.length
-    }
-  }
-}
 </script>
 
 <style lang="stylus" scoped>
-  .wrapper >>> .swiper-pagination-bullet-active
-    background: #fff
-  .wrapper
-    overflow: hidden
-    width: 100%
-    height: 0
-    padding-bottom: 31.25%
-    background: #eee
-    .swiper-img
-      width: 100%
+    .swiper-pagination >>> .swiper-pagination-bullet-active
+        background #fff !important 
+        width .3rem
+        border-radius .1rem
+        transition width .8s ease
+        opacity .8
+    .swiper-pagination >>> .swiper-pagination-bullet
+        background #fff
+        opacity .8
+    .home-swiper
+        width 100%
+        height 31.2vw
+        max-height 234px
+        overflow hidden    
+        background #eeeeee
+        .swiper
+            .swiper-slide
+                .swiper-img
+                    width 100%
 </style>

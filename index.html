@@ -2,11 +2,22 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
-    <title>travel</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>travle</title>
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_638312_2anfmrkfoo672e29.css">
   </head>
   <body>
     <div id="app"></div>
     <!-- built files will be auto injected -->
+    <script>
+      rem()
+      window.onresize = () => rem()
+      function rem () {
+        let htmlWidth = document.documentElement.clientWidth || document.body.clientWidth;
+        if (htmlWidth>750) htmlWidth=750
+        let htmlDom = document.getElementsByTagName('html')[0];
+        htmlDom.style.fontSize= htmlWidth/375*50 + 'px';
+      }
+    </script>
   </body>
 </html>
