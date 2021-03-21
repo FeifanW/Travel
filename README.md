@@ -19,7 +19,3 @@ npm run dev
 ```
 npm run build
 ```
-
-### 02-05 章基础课程源码：[点击下载](http://www.dell-lee.com/vue-source-code.zip)
-
-### 课程相关问题请在慕课网答疑区留言
